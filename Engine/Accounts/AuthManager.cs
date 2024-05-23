@@ -1,8 +1,6 @@
 ﻿using Eternity.Configs.Logger;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using VkNet;
 using VkNet.AudioBypassService.Extensions;
 using VkNet.Enums.Filters;
@@ -67,32 +65,11 @@ namespace Eternity.Engine.Accounts {
             }
             catch (Exception ex) {
                 if (ex.Message.Contains("Group authorization")) {
-                    Logger.Push($"[{Login}]: Обнаружен токен группы! Для авторизации сообществ - воспользуйтесь окношком 'По токену'...");
+                    Logger.Push($"[{Login}]: Обнаружен токен группы! Для авторизации сообществ - воспользуйтесь окошком 'По токену'...");
                 }
                 else
                     Logger.Push($"[{Login}]: " + ex.Message);
             }
         }
-    }
-
-    public class ResponsesUser {
-        public class Users {
-            /// <summary>
-            /// Имя аккаунта
-            /// </summary>
-            [JsonProperty("first_name")] public string FirstName { get; set; }
-            /// <summary>
-            /// Фамилия аккаунта
-            /// </summary>
-            [JsonProperty("last_name")] public string LastName { get; set; }
-        }
-        /// <summary>
-        /// Список пользователей, полученный в ответе от сервера.
-        /// </summary>
-        [JsonProperty("response")] public List<Users> UserResponse;
-        /// <summary>
-        /// Токен аккаунта
-        /// </summary>
-        [JsonProperty("access_token")] public string AccessToken;
     }
 }

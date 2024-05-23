@@ -1,6 +1,8 @@
 ﻿using Eternity.Configs.Logger;
 using Eternity.Engine.Accounts;
 using Eternity.Engine.Helpers;
+using Eternity.Enums.Logging;
+using Eternity.Objects.Model.User;
 using Eternity.Utils.API;
 using Newtonsoft.Json;
 using System;
@@ -116,7 +118,7 @@ namespace Eternity.Forms {
                 Clipboard.SetText(comboBox_ActiveChat.Text.Replace(StrWrk.GetBetween(comboBox_ActiveChat.Text, "(", ")"), "").Replace("()", ""));
             }
             catch {
-
+                // ignored
             }
         }
     }

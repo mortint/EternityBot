@@ -1,5 +1,6 @@
 ﻿using Eternity.Configs.Logger;
 using Eternity.Engine.Accounts.Enums;
+using Eternity.Enums.Logging;
 using FlatUI;
 using System;
 using System.Collections.Generic;
@@ -56,5 +57,4 @@ namespace Eternity.Engine.Accounts {
             }
         }
     }
-
 }

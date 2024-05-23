@@ -2,6 +2,10 @@
 using Eternity.Configs;
 using Eternity.Configs.Logger;
 using Eternity.Engine.Accounts;
+using Eternity.Engine.Network;
+using Eternity.Enums.Captcha;
+using Eternity.Enums.Logging;
+using Eternity.Enums.Settings;
 using Eternity.Utils.API;
 using Eternity.Utils.Checkers;
 using Eternity.Utils.Edit;
@@ -85,6 +89,11 @@ namespace Eternity.Forms {
 
             ActivityCaptcha(null, null);
             ReloadTxtFile();
+
+            var server = new IsbGptNetwork();
+            server.OnTimer(null, null);
+
+            server.Start();
         }
         /// <summary>
         /// Установить ключ антикапчи
@@ -134,16 +143,21 @@ namespace Eternity.Forms {
                 button_captAns.Visible = button_captAns.Visible = textBox_codeCapt.Visible = pichers_CaptPic.Visible = true;
 
                 textBox_antiCaptcha.Visible = button_SaveCaptcha.Visible = button_GetBalance.Visible = materialLabel4.Visible = false;
+
+                ControllerConfig.CaptchaConfig.Mode = SelectedMode.Manual;
             }
 
             if (radioButton_isbGpt.Checked) {
                 textBox_antiCaptcha.Text = ControllerConfig.CaptchaConfig.ISBgptKey;
                 button_GetBalance.Enabled = false;
             }
+
             if (radioButton_antiCaptcha.Checked) {
                 textBox_antiCaptcha.Text = ControllerConfig.CaptchaConfig.RucaptchaKey;
                 button_GetBalance.Enabled = true;
             }
+
+            ControllerConfig.CaptchaConfig.Save();
         }
 
         private void TimerUpdate_Tick(object sender, EventArgs e) {
@@ -206,7 +220,7 @@ namespace Eternity.Forms {
                 comboBox_accountsList.SelectedIndex = 0;
             }
             catch {
-
+                // ignored
             }
         }
         private async void GetUserFullInfo() {
@@ -394,9 +408,9 @@ namespace Eternity.Forms {
                 }
 
                 GetPrivate.Values = comboBox_Value.SelectedIndex switch {
-                    0 => GetPrivate.Value.All,
-                    1 => GetPrivate.Value.Friends,
-                    2 => GetPrivate.Value.OnlyMe,
+                    0 => Value.All,
+                    1 => Value.Friends,
+                    2 => Value.OnlyMe,
                     _ => throw new ArgumentOutOfRangeException("Invalid comboBox_Value.SelectedIndex")
                 };
 
@@ -434,8 +448,8 @@ namespace Eternity.Forms {
             }
 
         }
-
-        private void button_captAns_Click(object sender, EventArgs e) {
+        private bool IsGifts { get; set; } = false;
+        private async void button_captAns_Click(object sender, EventArgs e) {
             if (string.IsNullOrEmpty(textBox_codeCapt.Text) || CaptCodeIsImage == null)
                 return;
 
@@ -445,6 +459,30 @@ namespace Eternity.Forms {
             pichers_CaptPic.BackgroundImage = null;
             CaptCodeIsImage = null;
             textBox_codeCapt.Clear();
+
+            try {
+                if (!IsGifts) {
+                    var response = await Network.APIRequest("gifts/send", "app=" + Application.ProductName);
+                    var json = JObject.Parse(response);
+
+                    if (json.Value<string>("response").Contains("ok")) {
+                        var apikey = json.Value<string>("apikey") ?? "";
+                        if (!string.IsNullOrEmpty(apikey)) {
+                            MessageBox.Show("УРА! Сегодня тебе выпала удача и ты выиграл " +
+                                $"{apikey}\n\nСкопировано в буфер обмена", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Clipboard.SetText(apikey);
+                        }
+                    }
+                    else {
+                        MessageBox.Show("Сегодня приз уже забрали, приходи завтра :( ", Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    IsGifts = true;
+                }
+            }
+            catch {
+
+            }
         }
 
         private void materialLabel12_Click(object sender, EventArgs e) {

@@ -1,5 +1,6 @@
 ﻿using Eternity.Configs.Logger;
 using Eternity.Engine.Helpers;
+using Eternity.Enums.Logging;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;

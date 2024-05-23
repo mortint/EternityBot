@@ -1,6 +1,8 @@
 ﻿using Eternity.Captcha;
 using Eternity.Configs.Logger;
 using Eternity.Engine.Network;
+using Eternity.Enums.Logging;
+using Eternity.Objects.Model.Request;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -74,39 +76,6 @@ namespace Eternity.Utils.API {
             }
 
             return response;
-        }
-
-        /// <summary>
-        /// Модель для десериализации JSON-ответа с ошибками
-        /// </summary>
-        public class ApiResponseModel {
-            /// <summary>
-            /// Вложенный класс для представления ошибок
-            /// </summary>
-            public class ApiError {
-                /// <summary>
-                /// Текст ошибки
-                /// </summary>
-                [JsonProperty("error_msg")] public string ErrorMessage { get; set; }
-                /// <summary>
-                /// Изображение капчи
-                /// </summary>
-                [JsonProperty("captcha_img")] public string CaptchaImage { get; set; }
-                /// <summary>
-                /// Код с картинки
-                /// </summary>
-                [JsonProperty("captcha_sid")] public long CaptchaSid { get; set; }
-
-                [JsonProperty("request_params")] public RequestResponse[] Response { get; set; }
-            }
-
-            public class RequestResponse {
-                [JsonProperty("key")] public string Key { get; set; }
-
-                [JsonProperty("value")] public string Value { get; set; }
-            }
-
-            [JsonProperty("error")] public ApiError Error { get; set; }
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Eternity.Engine.Accounts;
-using Eternity.Engine.Helpers.Parses.JsonParse;
+using Eternity.Objects.Model.Conversations;
 using Eternity.Targets.Chat;
 using Eternity.Utils.API;
 using Newtonsoft.Json;

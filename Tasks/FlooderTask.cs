@@ -1,6 +1,9 @@
 ﻿using Eternity.Configs.Logger;
 using Eternity.Engine.Accounts;
 using Eternity.Engine.Helpers;
+using Eternity.Enums.Exception;
+using Eternity.Enums.Logging;
+using Eternity.Enums.Target;
 using Eternity.Targets;
 using Eternity.Tasks.Settings;
 using Eternity.Utils;
@@ -8,7 +11,6 @@ using Eternity.Utils.API;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Threading;
-using static Eternity.Utils.LinksParser.TargetData;
 
 namespace Eternity.Tasks {
     internal class FlooderTask {
@@ -126,18 +128,15 @@ namespace Eternity.Tasks {
                     if (IsRetryAllowed(resp)) {
                         var respRetry = Server.APIRequest("messages.send", requestParams, acc.Token);
 
-                        if (!IsMessageSentSuccessfully(respRetry)) {
+                        if (!IsMessageSentSuccessfully(respRetry))
                             Logger.Push("[VK API]: Не удалось отправить сообщение во второй раз.");
-                        }
                     }
-                    else {
+                    else
                         Logger.Push("[VK API]: Повторная отправка невозможна из-за ошибки или сбоя.");
-                    }
                 }
             }
-            else {
+            else
                 resp = Server.APIRequest(sendLink.Type == TypeTarget.Wall ? "wall.createComment" : "messages.send", requestParams, acc.Token);
-            }
 
             if (!resp.Contains("error")) {
                 if (FlooderSettings.IsSendFalse)

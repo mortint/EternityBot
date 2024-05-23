@@ -1,6 +1,7 @@
 ﻿using Eternity.Captcha.capLib;
 using Eternity.Configs;
 using Eternity.Configs.Logger;
+using Eternity.Enums.Captcha;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -43,7 +44,7 @@ namespace Eternity.Captcha {
         /// </summary>
         private static readonly HttpClient _httpClient;
         static CaptchaSolver() => _httpClient = new HttpClient(new HttpClientHandler()) {
-            BaseAddress = new Uri("http://185.103.109.185:3010/api/v1/solver"),
+            BaseAddress = ControllerConfig.IsbGptConfig.Uri,
             Timeout = TimeSpan.FromMinutes(2)
         };
 
@@ -119,7 +120,7 @@ namespace Eternity.Captcha {
                             }
                         }
                         catch {
-
+                            // ignored
                         }
                     }
 

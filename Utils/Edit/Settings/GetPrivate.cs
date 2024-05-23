@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Eternity.Enums.Settings;
+using System.Collections.Generic;
 
 namespace Eternity.Utils.Edit.Settings {
     /// <summary>
@@ -68,11 +69,5 @@ namespace Eternity.Utils.Edit.Settings {
                 "mini_apps",
                 "calls_ip",
             };
-
-        public enum Value {
-            All,
-            OnlyMe,
-            Friends
-        }
     }
 }

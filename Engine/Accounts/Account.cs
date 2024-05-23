@@ -1,5 +1,6 @@
 ﻿using Eternity.Configs.Logger;
 using Eternity.Engine.Accounts.Enums;
+using Eternity.Enums.Logging;
 using Eternity.Tasks;
 using Eternity.Tasks.Settings;
 using Newtonsoft.Json;

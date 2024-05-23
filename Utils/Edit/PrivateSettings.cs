@@ -1,5 +1,6 @@
 ﻿using Eternity.Configs.Logger;
 using Eternity.Engine.Accounts;
+using Eternity.Enums.Settings;
 using Eternity.Utils.Edit.Settings;
 using System;
 using System.Threading;
@@ -24,9 +25,9 @@ namespace Eternity.Utils.Edit {
                 api.Account.SetPrivacy(PrivacyKey.Search_by_reg_phone, searchByRegPhonePrivacy);
 
                 var value = GetPrivate.Values switch {
-                    GetPrivate.Value.All => GetPrivate.All,
-                    GetPrivate.Value.Friends => GetPrivate.Friends,
-                    GetPrivate.Value.OnlyMe => GetPrivate.OnlyMe,
+                    Value.All => GetPrivate.All,
+                    Value.Friends => GetPrivate.Friends,
+                    Value.OnlyMe => GetPrivate.OnlyMe,
                     _ => string.Empty
                 };
 

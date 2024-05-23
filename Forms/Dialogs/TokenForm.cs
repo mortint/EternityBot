@@ -1,6 +1,7 @@
 ﻿using Eternity.Configs.Logger;
 using Eternity.Engine.Accounts;
 using Eternity.Engine.Helpers;
+using Eternity.Enums.Logging;
 using Eternity.Utils.API;
 using FlatUI;
 using MaterialSkin.Controls;

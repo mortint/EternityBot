@@ -1,15 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using Eternity.Enums.Captcha;
+using Newtonsoft.Json;
 using System.IO;
 
 namespace Eternity.Configs {
-    /// <summary>
-    /// Перечисление (выбор) сервиса капчи
-    /// </summary>
-    internal enum SelectedMode {
-        Manual,
-        RuCaptcha,
-        ISBgpt
-    }
     internal class CaptchaConfig {
         /// <summary>
         /// Ключ RuCaptcha

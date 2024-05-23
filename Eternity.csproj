@@ -154,19 +154,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Captcha\CaptchaSolver.cs" />
-    <Compile Include="Captcha\Libs\CaptchaCharTypeEnum.cs" />
+    <Compile Include="Configs\IsbGptConfig.cs" />
+    <Compile Include="Engine\Network\IsbGptNetwork.cs" />
+    <Compile Include="Enums\Captcha\CaptchaCharTypeEnum.cs" />
     <Compile Include="Captcha\Libs\CaptchaConfig.cs" />
-    <Compile Include="Captcha\Libs\CaptchaLanguageEnum.cs" />
+    <Compile Include="Enums\Captcha\CaptchaLanguageEnum.cs" />
     <Compile Include="Captcha\Libs\RuCaptchaClient.cs" />
     <Compile Include="Captcha\Libs\RuCaptchaException.cs" />
     <Compile Include="Configs\CaptchaConfig.cs" />
     <Compile Include="Configs\ControllerConfig.cs" />
-    <Compile Include="Configs\Logger\Logger.cs" />
+    <Compile Include="Enums\Captcha\SelectedMode.cs" />
+    <Compile Include="Enums\Exception\ExceptionType.cs" />
+    <Compile Include="Enums\InternetConnectionState.cs" />
+    <Compile Include="Enums\Logging\TypeLogger.cs" />
+    <Compile Include="Enums\Logging\TypeLogShow.cs" />
+    <Compile Include="Enums\Settings\Value.cs" />
+    <Compile Include="Enums\Target\TypeTarget.cs" />
+    <Compile Include="Globals.cs" />
+    <Compile Include="Interfaces\IConfig.cs" />
+    <Compile Include="Logging\Logger.cs" />
     <Compile Include="Engine\Accounts\Account.cs" />
     <Compile Include="Engine\Accounts\AccountManager.cs" />
-    <Compile Include="Engine\Accounts\Enums\AuthOfStatus.cs" />
-    <Compile Include="Engine\Helpers\Internet.cs" />
-    <Compile Include="Engine\Helpers\StrWrk.cs" />
+    <Compile Include="Enums\Account\AuthOfStatus.cs" />
+    <Compile Include="Misc\Internet.cs" />
+    <Compile Include="Misc\StrWrk.cs" />
     <Compile Include="Engine\Network\Network.cs" />
     <Compile Include="Forms\Dialogs\TokenForm.cs">
       <SubType>Form</SubType>
@@ -192,23 +203,33 @@
       <SubType>Form</SubType>
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Objects\Model\Conversations\Conversations.cs" />
+    <Compile Include="Objects\Model\Conversations\Items.cs" />
+    <Compile Include="Objects\Model\Conversations\Peer.cs" />
+    <Compile Include="Objects\Model\Conversations\Response.cs" />
+    <Compile Include="Objects\Model\Conversations\ResponseConversation.cs" />
+    <Compile Include="Objects\Model\Conversations\SettingsChat.cs" />
+    <Compile Include="Objects\Model\Request\ApiError.cs" />
+    <Compile Include="Objects\Model\Request\ApiResponseModel.cs" />
+    <Compile Include="Objects\Model\Request\RequestResponse.cs" />
+    <Compile Include="Objects\Model\User\ResponsesUser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Targets\Chat\ChatInfo.cs" />
     <Compile Include="Targets\Chat\ConversationsTarget.cs" />
     <Compile Include="Targets\FlooderTarget.cs" />
+    <Compile Include="Targets\TargetData.cs" />
     <Compile Include="Tasks\ConversationsTask.cs" />
     <Compile Include="Tasks\FlooderTask.cs" />
     <Compile Include="Tasks\Settings\ConversationsSettings.cs" />
     <Compile Include="Tasks\Settings\FlooderSettings.cs" />
     <Compile Include="Utils\API\ExecuteManager.cs" />
     <Compile Include="Utils\API\Server.cs" />
-    <Compile Include="Utils\Checkers\DependencyChecker.cs" />
+    <Compile Include="Misc\Checkers\DependencyChecker.cs" />
     <Compile Include="Utils\Edit\AccountEdit.cs" />
     <Compile Include="Utils\Edit\PrivateSettings.cs" />
     <Compile Include="Utils\Edit\Settings\GetPrivate.cs" />
     <Compile Include="Engine\Helpers\Parses\LinksParser.cs" />
-    <Compile Include="Engine\Helpers\Parses\JsonParse\ResponseConversation.cs" />
     <Compile Include="Engine\Accounts\AuthManager.cs" />
     <EmbeddedResource Include="Forms\Dialogs\TokenForm.resx">
       <DependentUpon>TokenForm.cs</DependentUpon>
@@ -237,6 +258,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(TargetDir)*.dll" "Library\" /Y</PostBuildEvent>

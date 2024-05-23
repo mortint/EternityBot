@@ -1,4 +1,5 @@
 ﻿using Eternity.Configs.Logger;
+using Eternity.Enums.Logging;
 using Eternity.Utils.API;
 using System;
 

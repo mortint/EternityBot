@@ -8,15 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace Eternity.Tasks.Settings {
-    /// <summary>
-    /// Тип ошибки
-    /// </summary>
-    enum ExceptionType {
-        Kicked,
-        Blocked,
-        BrowserIssue,
-        Other
-    }
     public class FlooderSettings {
         /// <summary>
         /// Коллекция целей
