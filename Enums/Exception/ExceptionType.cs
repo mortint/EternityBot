@@ -6,6 +6,8 @@
         Kicked,
         Blocked,
         BrowserIssue,
-        Other
+        Other,
+        Another,
+        Test
     }
 }
