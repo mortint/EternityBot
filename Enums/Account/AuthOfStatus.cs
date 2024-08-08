@@ -6,6 +6,7 @@
         None,
         Ok,
         Invalid,
-        Other
+        Other,
+        AN
     }
 }
