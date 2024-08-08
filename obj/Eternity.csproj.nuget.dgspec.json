@@ -1,0 +1,124 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\spyfa\\source\\repos\\EternityBot\\Eternity.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\spyfa\\source\\repos\\EternityBot\\Eternity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\spyfa\\source\\repos\\EternityBot\\Eternity.csproj",
+        "projectName": "Eternity",
+        "projectPath": "C:\\Users\\spyfa\\source\\repos\\EternityBot\\Eternity.csproj",
+        "packagesPath": "C:\\Users\\spyfa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\spyfa\\source\\repos\\EternityBot\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\spyfa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.58, )"
+            },
+            "Microsoft.Bcl.AsyncInterfaces": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "System.Buffers": {
+              "target": "Package",
+              "version": "[4.5.1, )"
+            },
+            "System.Collections.Immutable": {
+              "target": "Package",
+              "version": "[1.7.1, )"
+            },
+            "System.Memory": {
+              "target": "Package",
+              "version": "[4.5.5, )"
+            },
+            "System.Numerics.Vectors": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "System.Runtime.CompilerServices.Unsafe": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "System.Text.Encoding.CodePages": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "System.Threading.Tasks.Extensions": {
+              "target": "Package",
+              "version": "[4.5.4, )"
+            },
+            "VkNet": {
+              "target": "Package",
+              "version": "[1.76.0, )"
+            },
+            "VkNet.AudioBypassService": {
+              "target": "Package",
+              "version": "[1.7.6, )"
+            },
+            "protobuf-net": {
+              "target": "Package",
+              "version": "[3.1.25, )"
+            },
+            "protobuf-net.Core": {
+              "target": "Package",
+              "version": "[3.1.25, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-arm64": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
