@@ -7,6 +7,7 @@
         Ok,
         Invalid,
         Other,
-        AN
+        AN,
+        Test
     }
 }
